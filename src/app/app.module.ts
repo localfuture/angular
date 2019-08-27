@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ViewComponent } from './view/view.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   {path:'',component: ContactUsComponent},
-  {path:'view',component: ViewComponent}
+  {path:'view',component: ViewComponent},
+  {path:'search',component: SearchComponent}
   
 ]
 
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     ContactUsComponent,
-    ViewComponent
+    ViewComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
