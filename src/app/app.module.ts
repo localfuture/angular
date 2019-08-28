@@ -9,11 +9,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ViewComponent } from './view/view.component';
 import { SearchComponent } from './search/search.component';
+import { DeleteComponent } from './delete/delete.component';
 
 const appRoutes: Routes = [
   {path:'',component: ContactUsComponent},
   {path:'view',component: ViewComponent},
-  {path:'search',component: SearchComponent}
+  {path:'search',component: SearchComponent},
   
 ]
 
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     ContactUsComponent,
     ViewComponent,
-    SearchComponent
+    SearchComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm, NgModel} from '@angular/forms';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-search',
@@ -7,16 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  status = false;
-  constructor() { }
+  
+  
+  private mydata: Array<object> = [];
 
-  onSubmit(data) {
-    if(data.value.name == 'admin'){
-      this.status=true;
-    }
+  constructor(private apiservice: ApiService) { }
+  private status = false;
+  onSubmit(data:NgForm) {
+    console.log(data.value);
+    this.apiservice.searchData(data.value).subscribe((response:Array<object>)=>{
+       
+          if (response.length > 0) {
+            this.mydata = response;
+            this.status = true;
+          }
+    });
+
+  }
+
+  editbutton(){
+    console.log(this.mydata);
+    this.apiservice.editData(this.mydata[0]).subscribe((Response:any)=>{
+      console.log(Response);
+      alert('Successfully Inserted');
+    })
+  }
+
+  deletebutton(){
+    console.log(this.mydata);
+    this.apiservice.deleteData(this.mydata[0]).subscribe((Response:any)=>{
+      console.log(Response);
+      alert('Successfully Deleted');
+    });
   }
 
   ngOnInit() {
+
   }
 
 }

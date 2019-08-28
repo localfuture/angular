@@ -16,7 +16,7 @@ export class ContactUsComponent implements OnInit {
 
   onSubmit(data:NgForm){
     console.log(data.value);
-    this.apiService.insertData(data.value).subscribe((response)=>{
+    this.apiService.insertData(data.value).subscribe((response:any)=>{
       console.log(response);
       alert('Successfully Inserted');
     })
